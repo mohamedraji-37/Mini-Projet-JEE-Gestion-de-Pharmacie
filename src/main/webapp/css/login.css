@@ -1,0 +1,118 @@
+/* login.css */
+
+/* Définir le fond général de la page avec l'image */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('../Images/Pharmacie2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* NOUVEAU : conteneur compatible avec ton JSP */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Conteneur du formulaire */
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 55px 60px;          /* un peu plus grand */
+    border-radius: 12px;
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.25);
+
+    width: 450px;                /* largeur augmentée */
+    max-width: 90%;              /* compatible petits écrans */
+
+    text-align: center;
+    backdrop-filter: blur(6px);
+}
+
+h2 {
+    color: #2e7d32;
+    margin-bottom: 30px;         /* légèrement augmenté */
+    text-align: center;
+    font-size: 28px;             /* un peu plus grand */
+}
+
+/* Labels */
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* Champs input */
+input[type="text"], 
+input[type="password"] {
+    width: 100%;
+    padding: 12px;               /* un peu plus confortable */
+    margin-bottom: 22px;
+    border: 2px solid #a5d6a7;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+/* Bouton */
+button {
+    background-color: #2e7d32;
+    color: white;
+    padding: 14px 20px;          /* un peu plus grand */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #1b5e20;
+}
+
+/* Message d'erreur */
+p {
+    color: red;
+    margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    form {
+        width: 95%;
+        padding: 40px;
+    }
+}
+/* Lien inscription */
+.register-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.register-link a {
+    color: #2e7d32;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+    color: #1b5e20;
+}
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 14px;
+}

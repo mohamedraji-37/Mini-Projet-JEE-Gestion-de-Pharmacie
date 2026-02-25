@@ -1,0 +1,21 @@
+# Dossiers compilés
+/bin/
+/build/
+/target/
+
+# Eclipse
+.settings/
+.project
+.classpath
+
+# Tomcat
+/Servers/
+
+# Fichiers compilés
+*.class
+
+# Logs
+*.log
+
+# Fichiers temporaires
+*.tmp

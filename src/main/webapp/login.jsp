@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Connexion Client</title>
 <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -13,11 +14,11 @@
             <h2>Authentification Client</h2>
 
             <label>Email :</label>
-            <input type="text" name="email" placeholder="Veuillez entrer votre adresse email" required>
+            <input type="email" name="email" placeholder="Veuillez entrer votre adresse email" required>
 
             <label>Mot de passe :</label>
             <input type="password" name="password" placeholder="Veuillez entrer votre mot de passe" required>
-            <!-- Affichage message d'erreur -->
+            
 <%
     String error = (String) request.getAttribute("error");
     if(error != null){

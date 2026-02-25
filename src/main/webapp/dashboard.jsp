@@ -10,7 +10,7 @@
             padding: 0;
             height: 100vh;
             font-family: Arial, sans-serif;
-            background: url('<%= request.getContextPath() %>/Images/Pharmacie3.jpg') no-repeat center center fixed;
+            background: url('<%= request.getContextPath() %>/Images/Pharmacie2.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             align-items: center;
@@ -27,7 +27,7 @@
         }
 
         h1 {
-            color: #2f7d32; /* Vert comme ton login */
+            color: #2f7d32;
             margin-bottom: 10px;
         }
 
@@ -61,7 +61,7 @@
         <h1>Bienvenue sur Notre Pharmacie </h1>
         <p>Vous êtes connecté !.</p>
 
-        <!-- Bouton Continuer vers index.jsp -->
+      
         <a href="index.jsp" class="btn-continuer">Continuer</a>
     </div>
 

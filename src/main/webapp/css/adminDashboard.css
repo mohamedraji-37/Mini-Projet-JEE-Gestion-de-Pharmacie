@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+}
+
+header {
+    background-color: #27ae60;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right i {
+    margin-right: 10px;
+}
+
+/* Layout principal */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+}
+
+/* Grille des boutons */
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 240px);
+    gap: 40px;
+    margin-top: -170px;   /* remonte les boutons */
+}
+
+/* Carte bouton */
+.card {
+    text-align: center;
+}
+
+/* Boutons CRUD */
+.btn {
+    width: 100%;
+    height: 90px;
+    font-size: 18px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+/* Effet hover moderne */
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    opacity: 0.95;
+}
+
+/* Effet clic */
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* Couleurs plus soft */
+.add {
+    background-color: #2ecc71;
+}
+
+.update {
+    background-color: #3498db;
+}
+
+.delete {
+    background-color: #e74c3c;
+}
+
+.search {
+    background-color: #9b59b6;
+}
+
+/* Icônes */
+.btn i {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+/* Texte descriptif */
+.description {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Image à droite */
+.right-space img {
+    width: 550px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}

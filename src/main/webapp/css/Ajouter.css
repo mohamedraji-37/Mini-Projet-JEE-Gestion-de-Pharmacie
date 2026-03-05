@@ -1,0 +1,91 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #dff6f0, #e8f4ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Card */
+.container {
+    background: white;
+    width: 450px;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    border-top: 6px solid #2bb673;
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    color: #1b5e63;
+    margin-bottom: 25px;
+}
+
+/* Labels */
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #2f4f4f;
+}
+
+/* Inputs */
+form input[type="text"],
+form input[type="number"],
+form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cfd8dc;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Focus effect */
+form input:focus {
+    border-color: #2bb673;
+    box-shadow: 0 0 6px rgba(43,182,115,0.3);
+}
+
+/* 🔥 Upload File Style */
+input[type="file"] {
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #cfd8dc;
+    background: #f8fbfa;
+    cursor: pointer;
+}
+
+/* Button */
+input[type="submit"] {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: #2bb673;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+input[type="submit"]:hover {
+    background: #239a60;
+    transform: translateY(-2px);
+}

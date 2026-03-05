@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-    private static final String URL = "jdbc:mariadb://localhost:3306/pharmacie";
+    private static final String URL =
+    "jdbc:mariadb://localhost:3306/pharmacie?useUnicode=true&characterEncoding=UTF-8";
+
     private static final String USER = "root";
     private static final String PASSWORD = "";
 

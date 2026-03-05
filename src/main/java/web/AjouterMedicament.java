@@ -33,15 +33,13 @@ public class AjouterMedicament extends HttpServlet {
             double prix = Double.parseDouble(request.getParameter("prix"));
             int quantite = Integer.parseInt(request.getParameter("quantite"));
 
-            // ✅ IMPORTANT : correspond au name="date_expiration" dans ton JSP
+           
             String dateStr = request.getParameter("date_expiration");
 
             LocalDate dateExpiration = null;
             if (dateStr != null && !dateStr.isEmpty()) {
                 dateExpiration = LocalDate.parse(dateStr);
             }
-
-            // ===== Upload Image =====
 
             Part imagePart = request.getPart("image");
             String image = null;
@@ -52,7 +50,7 @@ public class AjouterMedicament extends HttpServlet {
 
                 image = imagePart.getSubmittedFileName();
 
-                // Dossier images dans ton projet
+                
                 String uploadPath = getServletContext().getRealPath("") + "Images";
 
                 File uploadDir = new File(uploadPath);
@@ -79,7 +77,6 @@ public class AjouterMedicament extends HttpServlet {
             MedicamentDAO dao = new MedicamentDAO();
             dao.ajouter(m);
 
-            // Redirection après succès
             response.sendRedirect("succes.jsp");
 
         } catch (Exception e) {

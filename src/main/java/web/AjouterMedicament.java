@@ -22,6 +22,9 @@ public class AjouterMedicament extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	 request.setCharacterEncoding("UTF-8");
+    	    response.setCharacterEncoding("UTF-8");
+    	    response.setContentType("text/html; charset=UTF-8");
 
         try {
 
@@ -77,7 +80,7 @@ public class AjouterMedicament extends HttpServlet {
             MedicamentDAO dao = new MedicamentDAO();
             dao.ajouter(m);
 
-            response.sendRedirect("succes.jsp");
+            response.sendRedirect("succesajout.jsp");
 
         } catch (Exception e) {
             e.printStackTrace();

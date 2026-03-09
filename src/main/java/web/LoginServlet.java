@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", email);
 
-            response.sendRedirect("dashboard.jsp");
+            response.sendRedirect("adminDashboard.jsp");
         } else {
            
             request.setAttribute("error", "Email ou mot de passe incorrect !");

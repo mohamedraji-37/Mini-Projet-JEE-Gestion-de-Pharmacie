@@ -11,7 +11,7 @@
 <header>
     <div class="header-left">
      
-        <a href="AjouterServlet">Ajouter</a>
+        <a href="Ajouter_medicament.jsp">Ajouter</a>
         <a href="ModifierServlet">Modifier</a>
         <a href="SupprimerServlet">Supprimer</a>
         <a href="RechercherServlet">Rechercher</a>

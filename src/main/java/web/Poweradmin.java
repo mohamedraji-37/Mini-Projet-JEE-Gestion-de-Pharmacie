@@ -30,7 +30,7 @@ public class Poweradmin extends HttpServlet {
 		} 
 		else {
 			request.setAttribute("error", "incorrect user or password");
-			request.getRequestDispatcher("Power.jsp").forward(request, response);
+			request.getRequestDispatcher("Powerlogin.jsp").forward(request, response);
 		}
 	}
 }

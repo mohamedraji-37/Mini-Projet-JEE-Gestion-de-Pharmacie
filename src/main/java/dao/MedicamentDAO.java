@@ -37,8 +37,63 @@ public class MedicamentDAO {
         ps.executeUpdate();
         ps.close();
     }
-    
+    public static boolean supprimerMedicament(int id) {
+        boolean rowDeleted = false;
+
+        try {
+            Connection con = DBConnection.getConnection();
+
+            String sql = "DELETE FROM medicament WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            rowDeleted = ps.executeUpdate() > 0;
+
+            ps.close();
+            con.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return rowDeleted;
+    }
+    public static Medicament getMedicamentById(int id) {
+
+        Medicament m = null;
+
+        try {
+
+            Connection con = DBConnection.getConnection();
+
+            String sql = "SELECT * FROM medicament WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                m = new Medicament();
+
+                m.setId(rs.getInt("id"));
+                m.setNom(rs.getString("nom"));
+                m.setDescription(rs.getString("description"));
+                m.setPrix(rs.getDouble("prix"));
+                m.setQuantite(rs.getInt("quantite"));
+                m.setImage(rs.getString("image"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return m;
+    }
+}
 
   
 
-}
+

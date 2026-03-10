@@ -33,7 +33,7 @@ header a:hover {
     margin-right: 10px;
 }
 
-/* Layout principal */
+
 .main-container {
     display: flex;
     justify-content: space-between;
@@ -41,20 +41,19 @@ header a:hover {
     padding: 60px 80px;
 }
 
-/* Grille des boutons */
+
 .buttons-grid {
     display: grid;
     grid-template-columns: repeat(2, 240px);
     gap: 40px;
-    margin-top: -170px;   /* remonte les boutons */
+    margin-top: -170px;
 }
 
-/* Carte bouton */
+
 .card {
     text-align: center;
 }
 
-/* Boutons CRUD */
 .btn {
     width: 100%;
     height: 90px;
@@ -67,19 +66,19 @@ header a:hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
-/* Effet hover moderne */
+
 .btn:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.18);
     opacity: 0.95;
 }
 
-/* Effet clic */
+
 .btn:active {
     transform: scale(0.97);
 }
 
-/* Couleurs plus soft */
+
 .add {
     background-color: #2ecc71;
 }
@@ -96,22 +95,144 @@ header a:hover {
     background-color: #9b59b6;
 }
 
-/* Icônes */
+
 .btn i {
     font-size: 22px;
     margin-right: 10px;
 }
 
-/* Texte descriptif */
+
 .description {
     margin-top: 12px;
     font-size: 14px;
     color: #777;
 }
 
-/* Image à droite */
+
 .right-space img {
     width: 550px;
     border-radius: 18px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+
+.popup-content {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 1001;
+
+
+    animation: popupAnimation 0.3s ease;
+}
+
+
+@keyframes popupAnimation {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+/* bouton supprimer */
+.btn-confirm {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+.btn-confirm:hover {
+    background: #219150;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.popup-content img {
+    width: 140px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+
+.popup-content button {
+    margin-top: 10px;
+}
+.btn-retour{
+
+    background:#ecf0f1;
+
+    color:#333;
+
+    border:none;
+
+    padding:8px 20px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    margin-top:8px;
+
+    transition:0.2s;
+}
+
+.btn-retour:hover{
+
+    background:#dcdde1;
 }

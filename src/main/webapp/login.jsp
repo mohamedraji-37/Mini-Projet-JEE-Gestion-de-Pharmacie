@@ -31,7 +31,7 @@
             <button type="submit">Se connecter</button>
             <p class="register-link">
     Vous n'avez pas de compte ?
-    <a href="register.jsp">Créer un compte</a>
+    <a href="inscription.jsp">Créer un compte</a>
 </p>
 
         </form>

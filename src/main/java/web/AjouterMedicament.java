@@ -17,73 +17,73 @@ import java.time.LocalDate;
 
 @WebServlet("/ajouterMedicament")
 @MultipartConfig
+
 public class AjouterMedicament extends HttpServlet {
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    	 request.setCharacterEncoding("UTF-8");
-    	    response.setCharacterEncoding("UTF-8");
-    	    response.setContentType("text/html; charset=UTF-8");
+@Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
 
-        try {
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+response.setContentType("text/html; charset=UTF-8");
 
-           
+try {
 
-            String nom = request.getParameter("nom");
-            String description = request.getParameter("description");
+String nom = request.getParameter("nom");
+String description = request.getParameter("description");
+double prix = Double.parseDouble(request.getParameter("prix"));
+int quantite = Integer.parseInt(request.getParameter("quantite"));
 
-            double prix = Double.parseDouble(request.getParameter("prix"));
-            int quantite = Integer.parseInt(request.getParameter("quantite"));
+String dateStr = request.getParameter("date_expiration");
+LocalDate dateExpiration = null;
 
-           
-            String dateStr = request.getParameter("date_expiration");
+if (dateStr != null && !dateStr.isEmpty()) {
+dateExpiration = LocalDate.parse(dateStr);
+}
 
-            LocalDate dateExpiration = null;
-            if (dateStr != null && !dateStr.isEmpty()) {
-                dateExpiration = LocalDate.parse(dateStr);
-            }
+Part imagePart = request.getPart("image");
+String image = null;
 
-            Part imagePart = request.getPart("image");
-            String image = null;
+if (imagePart != null && imagePart.getSubmittedFileName() != null 
+&& !imagePart.getSubmittedFileName().isEmpty()) {
 
-            if (imagePart != null &&
-                imagePart.getSubmittedFileName() != null &&
-                !imagePart.getSubmittedFileName().isEmpty()) {
+image = imagePart.getSubmittedFileName();
 
-                image = imagePart.getSubmittedFileName();
+String uploadPath = getServletContext().getRealPath("") + "Images";
 
-                
-                String uploadPath = getServletContext().getRealPath("") + "Images";
+File uploadDir = new File(uploadPath);
 
-                File uploadDir = new File(uploadPath);
-                if (!uploadDir.exists()) {
-                    uploadDir.mkdir();
-                }
+if (!uploadDir.exists()) {
+uploadDir.mkdir();
+}
 
-              
-                imagePart.write(uploadPath + File.separator + image);
-            }
+imagePart.write(uploadPath + File.separator + image);
+}
 
-            
+Medicament m = new Medicament();
 
-            Medicament m = new Medicament();
-            m.setNom(nom);
-            m.setDescription(description);
-            m.setPrix(prix);
-            m.setQuantite(quantite);
-            m.setDateExpiration(dateExpiration);
-            m.setImage(image);
+m.setNom(nom);
+m.setDescription(description);
+m.setPrix(prix);
+m.setQuantite(quantite);
+m.setDateExpiration(dateExpiration);
+m.setImage(image);
 
-      
+MedicamentDAO dao = new MedicamentDAO();
 
-            MedicamentDAO dao = new MedicamentDAO();
-            dao.ajouter(m);
+dao.ajouter(m);
 
-            response.sendRedirect("succesajout.jsp");
+response.sendRedirect("Ajouter_medicament.jsp?success=1");
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.getWriter().println("Erreur : " + e.getMessage());}
-    }
+} catch (Exception e) {
+
+e.printStackTrace();
+
+response.sendRedirect("Ajouter_medicament.jsp?error=1");
+
+}
+
+}
+
 }

@@ -34,7 +34,7 @@ public class PaiementServlet extends HttpServlet {
                 
      
                 Commande cmd = new Commande();
-                cmd.setIdClient(8);
+                cmd.setIdClient(1);
                 cmd.setTotal(Double.parseDouble(totalStr));
                 cmd.setCodeSuivi(codeSuivi);
                 cmd.setEtat("En attente");

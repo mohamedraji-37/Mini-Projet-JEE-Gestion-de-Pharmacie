@@ -148,7 +148,7 @@
             <ul class="footer-links">
                 <li><a href="apropos.jsp">À propos</a></li>
                 <li><a href="contact.jsp">Contact</a></li>
-                <li><a href="tracking.jsp">Suivi de commande</a></li>
+                <li><a href="suiviCommande.jsp">Suivi de commande</a></li>
                 
             </ul>
         </div>

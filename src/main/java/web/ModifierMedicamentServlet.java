@@ -1,6 +1,7 @@
 package web;
 
 import dao.MedicamentDAO;
+
 import model.Medicament;
 
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate; // Importation du bon type pour ton modèle
+import java.time.LocalDate; 
 
 @WebServlet("/modifierMedicament")
 @MultipartConfig

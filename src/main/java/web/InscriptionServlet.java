@@ -36,7 +36,7 @@ public class InscriptionServlet extends HttpServlet {
             } else {
                 dao.ajouterClient(client); 
                 request.setAttribute("success", "Inscription réussie !");
-                request.getRequestDispatcher("adminDashboard.jsp").forward(request, response);
+                request.getRequestDispatcher("UserIndex.jsp").forward(request, response);
             }
         } catch (Exception e) {
             e.printStackTrace();

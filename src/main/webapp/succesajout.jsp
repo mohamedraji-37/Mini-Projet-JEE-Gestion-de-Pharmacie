@@ -44,10 +44,11 @@ a:hover{
 </head>
 
 <body>
+ <%@ include file="Nave.jsp" %>
 
 <div class="box">
 
-<h2>✅ Médicament ajouté avec succès</h2>
+<h2>Médicament ajouté avec succès</h2>
 
 <p>L'opération a été effectuée correctement.</p>
 
@@ -57,6 +58,6 @@ a:hover{
 <a href="listeMedicaments">Voir la liste des médicaments</a>
 
 </div>
-
+  <%@ include file="footer.jsp" %>
 </body>
 </html>

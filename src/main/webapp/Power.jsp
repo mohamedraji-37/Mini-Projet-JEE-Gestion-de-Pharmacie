@@ -92,42 +92,49 @@
       color: #888;
     }
 
-    .logo {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
+   .logo {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
   </style>
   </head>
-<body>  <div class="login-container"><div class="logo">💊</div>
+<body>  
+  <div class="login-container">
+    
+    <div class="logo">
+      <img src="Images/pngtree-medical-cross-and-health-pharmacy-logo-vector-template-image_148831.jpg" 
+           alt="Logo Pharmacie" 
+           style="height: 60px; width: auto; border-radius: 8px;">
+    </div>
 
-<h2>Pharmacy Admin</h2>
-<p>Secure Login Panel</p>
+    <h2>Authentification Admin</h2>
+   
 
-<form action="Poweradmin" method="post">
-  
-  <div class="input-group">
-    <label>Username</label>
-    <input type="text" placeholder="Enter admin username" required name="user">
-  </div>
+    <form action="Poweradmin" method="post">
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" placeholder="Enter admin username" required name="user">
+      </div>
 
-  <div class="input-group">
-    <label>Password</label>
-    <input type="password" placeholder="Enter password" required name="pass">
-  </div>
-<%
-String err= (String) request.getAttribute("error");
-if (err != null){
-%>
-<br><p style = "color:red;"><%=err%></p>
-<%}err=null; %>
-  <button type="submit" class="login-btn">Login</button>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter password" required name="pass">
+      </div>
 
-</form>
+      <%
+      String err = (String) request.getAttribute("error");
+      if (err != null){
+      %>
+      <p style="color:red; margin-bottom: 10px;"><%=err%></p>
+      <% } %>
 
-<div class="footer">
-  Pharmacy Management System
-</div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
 
-  </div></body>
+    <div class="footer">
+      Pharmacy Management System
+    </div>
+
+  </div> </body>
 </html>

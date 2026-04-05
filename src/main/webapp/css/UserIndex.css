@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+body {
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f8f9fa; 
+}
+
+.container {
+    display: flex;
+    align-items: flex-start; 
+    justify-content: space-around;
+    padding-top: 50px;       
+    height: auto;            
+    min-height: 80vh;
+}
+
+.Card {
+    border: none;
+    background: transparent;
+    margin-top: 20px;        
+}
+
+.logo {
+    margin-top: 20px;       
+}
+.card-text {
+    color: #455a64;
+    line-height: 1.6;
+}
+
+
+.btn-custom {
+    background: linear-gradient(90deg, #2e7d32, #43a047);
+    color: white;
+    border: none;
+    padding: 12px 30px; 
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(90deg, #1b5e20, #2e7d32);
+    color: white;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}

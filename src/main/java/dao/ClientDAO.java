@@ -1,71 +1,68 @@
 package dao;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import model.Client;
-
 import util.DBConnection;
 
 public class ClientDAO {
 
-    public boolean checkLogin(String email, String password) {
-
-        boolean status = false;
-
-        try {
-
-            Connection con = DBConnection.getConnection();
+    public Client validate(String email, String password) {
+        Client client = null;
+        String sql = "SELECT * FROM client WHERE email = ? AND password = ?";
         
-           
-            String sql = "SELECT * FROM client WHERE email = ? AND password = ?";
-
-            PreparedStatement ps = con.prepareStatement(sql);
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            
             ps.setString(1, email);
-            ps.setString(2, password.trim());
-
+            ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                status = true;
+                client = new Client();
+                client.setId(rs.getInt("id"));
+                client.setNom(rs.getString("nom"));
+                client.setEmail(rs.getString("email"));
+                client.setTelephone(rs.getString("telephone"));
             }
-
-            con.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return status;
+        return client;
     }
-    
 
-     
-        public boolean emailExiste(String email) throws Exception {
-            String sql = "SELECT * FROM client WHERE email = ?";
-            try (Connection con = DBConnection.getConnection();
-                 PreparedStatement ps = con.prepareStatement(sql)) {
+    public boolean emailExiste(String email) throws Exception {
+        String sql = "SELECT id FROM client WHERE email = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next();
+            }
+        }
+    }
 
-                ps.setString(1, email);
-                try (ResultSet rs = ps.executeQuery()) {
-                    return rs.next();
+    public int ajouterClient(Client client) throws Exception {
+        String sql = "INSERT INTO client (nom, telephone, email, password) VALUES (?, ?, ?, ?)";
+        int generatedId = -1;
+        
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+            ps.setString(1, client.getNom());
+            ps.setString(2, client.getTelephone());
+            ps.setString(3, client.getEmail());
+            ps.setString(4, client.getPassword());
+            ps.executeUpdate();
+
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) {
+                    generatedId = rs.getInt(1);
                 }
             }
         }
-
-      
-        public void ajouterClient(Client client) throws Exception {
-            String sql = "INSERT INTO client (nom, telephone, email, password) VALUES (?, ?, ?, ?)";
-            try (Connection con = DBConnection.getConnection();
-                 PreparedStatement ps = con.prepareStatement(sql)) {
-
-                ps.setString(1, client.getNom());
-                ps.setString(2, client.getTelephone());
-                ps.setString(3, client.getEmail());
-                ps.setString(4, client.getPassword());
-                ps.executeUpdate();
-            }
-        }
-   
+        return generatedId;
+    }
 }

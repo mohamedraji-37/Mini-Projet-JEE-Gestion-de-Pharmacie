@@ -7,6 +7,8 @@ public class Commande{
 	private int idClient;
 	private double total;
 	private LocalDate dateCommande;
+	private String codeSuivi;       
+    private String etat;
 	
 	
 	public Commande() {
@@ -31,5 +33,10 @@ public class Commande{
 	public void setDateCommande(LocalDate date_commande) {
 		this.dateCommande = date_commande;
 	}
+	public String getCodeSuivi() { return codeSuivi; }
+    public void setCodeSuivi(String codeSuivi) { this.codeSuivi = codeSuivi; }
+
+    public String getEtat() { return etat; }
+    public void setEtat(String etat) { this.etat = etat; }
 	
 }

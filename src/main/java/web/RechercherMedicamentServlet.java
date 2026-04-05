@@ -8,13 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet("/verifierSuppression")
-public class VerifierSuppressionServlet extends HttpServlet {
+@WebServlet("/rechercherMedicament")
+public class RechercherMedicamentServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String idStr = request.getParameter("id");
+        String idStr = request.getParameter("idMedicament");
         
         try {
             if (idStr != null && !idStr.isEmpty()) {
@@ -23,19 +23,18 @@ public class VerifierSuppressionServlet extends HttpServlet {
 
                 if (m == null) {
                     
-                    request.setAttribute("erreur", "Aucun médicament trouvé avec l'ID : " + id);
+                    request.setAttribute("erreur", "Aucun médicament trouvé pour l'ID : " + id);
                 } else {
-                    
-                    request.setAttribute("medicament", m);
+            
+                    request.setAttribute("medTrouve", m);
                 }
             } else {
-                request.setAttribute("erreur", "Veuillez saisir un ID.");
+                request.setAttribute("erreur", "Veuillez entrer un ID.");
             }
         } catch (NumberFormatException e) {
-            request.setAttribute("erreur", "L'ID doit être un nombre valide.");
+            request.setAttribute("erreur", "L'ID doit être un nombre.");
         }
 
-       
         request.getRequestDispatcher("adminDashboard.jsp").forward(request, response);
     }
 }
